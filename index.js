@@ -14,7 +14,7 @@ exports.handler = (event, context, callback) => {
   };
 
   return docClient.put(params, function (err, data) {
-    console.log(data)
+    console.log(data, "DATA")
     if (err) {
 
       data = {
