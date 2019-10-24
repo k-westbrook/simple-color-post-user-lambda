@@ -25,7 +25,7 @@ exports.handler = (event, context, callback) => {
         },
         body: JSON.stringify('ERROR, email and/or password not allowed.'),
       };
-      return data;
+      // return data;
 
     } else {
 
@@ -38,7 +38,7 @@ exports.handler = (event, context, callback) => {
         body: JSON.stringify('Successful creation in table.'),
 
       };
-      return data;
+      //return data;
 
     }
   })
