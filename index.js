@@ -26,19 +26,21 @@ exports.handler = (event, context, callback) => {
       };
 
     } else {
+      return "hi";
+      // return {
+      //   statusCode: 200,
+      //   headers: {
+      //     'Access-Control-Allow-Origin': '*',
+      //     'Access-Control-Allow-Credentials': true,
+      //   },
+      //   body: JSON.stringify('Successful creation in table.'),
 
-      return {
-        statusCode: 200,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': true,
-        },
-        body: JSON.stringify('Successful creation in table.'),
-
-      };
+      // };
 
     }
   })
+
+
 
 
 };
