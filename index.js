@@ -17,7 +17,7 @@ exports.handler = (event, context, callback) => {
     console.log(data)
     if (err) {
 
-      return {
+      data = {
         statusCode: 403,
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -25,18 +25,20 @@ exports.handler = (event, context, callback) => {
         },
         body: JSON.stringify('ERROR, email and/or password not allowed.'),
       };
+      return data;
 
     } else {
-      return "hi";
-      // return {
-      //   statusCode: 200,
-      //   headers: {
-      //     'Access-Control-Allow-Origin': '*',
-      //     'Access-Control-Allow-Credentials': true,
-      //   },
-      //   body: JSON.stringify('Successful creation in table.'),
 
-      // };
+      data = {
+        statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
+        body: JSON.stringify('Successful creation in table.'),
+
+      };
+      return data;
 
     }
   })
