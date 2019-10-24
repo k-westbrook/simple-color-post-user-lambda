@@ -40,7 +40,7 @@ exports.handler = (event, context, callback) => {
         body: JSON.stringify('Successful creation in table.'),
 
       };
-      console.log(response)
+      console.log("RESPONSE", response)
       return response;
     }
   })
