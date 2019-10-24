@@ -17,7 +17,7 @@ exports.handler = (event, context, callback) => {
 
 
   console.log("HERE")
-  docClient.put(params, function (err, data) {
+  return docClient.put(params, function (err, data) {
     if (err) {
 
       let response = {
