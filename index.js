@@ -13,8 +13,8 @@ exports.handler = (event, context, callback) => {
     TableName: "USER_INFO"
   };
 
-  return docClient.put(params, function (err, data) {
-    console.log(data, "DATA")
+  docClient.put(params, function (err, data) {
+    console.log(data, "DATAz")
     if (err) {
 
       data = {
@@ -44,6 +44,6 @@ exports.handler = (event, context, callback) => {
   })
 
 
-
+  return "hi";
 
 };
