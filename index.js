@@ -29,7 +29,7 @@ exports.handler = (event, context, callback) => {
         body: JSON.stringify('ERROR, email and/or password not allowed.'),
       };
     } else {
-      console.log("RESPONSE", response)
+
       response = {
         statusCode: 200,
         headers: {
@@ -38,6 +38,7 @@ exports.handler = (event, context, callback) => {
         },
         body: JSON.stringify('Successful creation in table.'),
       };
+      console.log("RESPONSE", response)
     }
   })
 
