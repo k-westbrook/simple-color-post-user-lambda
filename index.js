@@ -28,6 +28,7 @@ exports.handler = (event, context, callback) => {
         },
         body: JSON.stringify('ERROR, email and/or password not allowed.'),
       };
+      return response;
     } else {
 
       response = {
@@ -37,10 +38,11 @@ exports.handler = (event, context, callback) => {
           'Access-Control-Allow-Credentials': true,
         },
         body: JSON.stringify('Successful creation in table.'),
+
       };
-      console.log("RESPONSE", response)
+      return response;
     }
   })
 
-  return response;
+
 };
