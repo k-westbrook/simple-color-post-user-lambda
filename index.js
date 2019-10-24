@@ -3,7 +3,7 @@ const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient({ region: "us-west-1" });
 
 exports.handler = (event, context, callback) => {
-  console.log("Processing...");
+  console.log("Processing...now");
   const params = {
     Item: {
       user_id: uuidV4(),
@@ -13,14 +13,10 @@ exports.handler = (event, context, callback) => {
     TableName: "USER_INFO"
   };
 
-
-
-
-  console.log("HERE")
   return docClient.put(params, function (err, data) {
     if (err) {
 
-      let response = {
+      return {
         statusCode: 403,
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -28,10 +24,10 @@ exports.handler = (event, context, callback) => {
         },
         body: JSON.stringify('ERROR, email and/or password not allowed.'),
       };
-      return response;
+
     } else {
 
-      let response = {
+      return {
         statusCode: 200,
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -40,8 +36,7 @@ exports.handler = (event, context, callback) => {
         body: JSON.stringify('Successful creation in table.'),
 
       };
-      console.log("RESPONSE", response)
-      return response;
+
     }
   })
 
