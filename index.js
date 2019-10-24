@@ -22,7 +22,9 @@ exports.handler = (event, context, callback) => {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': true,
         },
-        body: JSON.stringify('ERROR, email and/or password not allowed.'),
+        body: {
+          message: JSON.stringify('ERROR, email and/or password not allowed.')
+        }
       };
       callback(null, data);
 
@@ -34,7 +36,11 @@ exports.handler = (event, context, callback) => {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': true,
         },
-        body: JSON.stringify('Successful creation in table.'),
+        body: {
+
+          message: JSON.stringify('Successful creation in table.'),
+          user: params.Item
+        }
 
       };
       callback(null, data);
