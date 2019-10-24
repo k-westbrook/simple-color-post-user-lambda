@@ -14,7 +14,7 @@ exports.handler = (event, context, callback) => {
   };
 
   docClient.put(params, function (err, data) {
-    console.log(data, "DATAz")
+
     if (err) {
 
       data = {
@@ -25,7 +25,7 @@ exports.handler = (event, context, callback) => {
         },
         body: JSON.stringify('ERROR, email and/or password not allowed.'),
       };
-      // return data;
+      callback(null, data);
 
     } else {
 
@@ -38,12 +38,12 @@ exports.handler = (event, context, callback) => {
         body: JSON.stringify('Successful creation in table.'),
 
       };
-      //return data;
+      callback(null, data);
 
     }
   })
 
 
-  return "hi";
+
 
 };
