@@ -14,13 +14,13 @@ exports.handler = (event, context, callback) => {
   };
 
 
-  var response;
+
 
   console.log("HERE")
   docClient.put(params, function (err, data) {
     if (err) {
 
-      response = {
+      let response = {
         statusCode: 403,
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -31,7 +31,7 @@ exports.handler = (event, context, callback) => {
       return response;
     } else {
 
-      response = {
+      let response = {
         statusCode: 200,
         headers: {
           'Access-Control-Allow-Origin': '*',
